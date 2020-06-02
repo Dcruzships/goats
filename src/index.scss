@@ -1,0 +1,22 @@
+$pageWidth: 100vw;
+$pageHeight: 100vh;
+$colorBG: black;
+$colorMain: white;
+$fontMain: 'Open Sans', sans-serif;
+
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  font-family: $fontMain;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
