@@ -34,12 +34,12 @@ function App()
 // }
 
 const scrollTo = () => {
-  scroller.scrollTo("about",
-  {
-    duration: 800,
-    delay: 0,
-    smooth: 'easeInOutQuart'
-  })
+  // scroller.scrollTo("about",
+  // {
+  //   duration: 800,
+  //   delay: 0,
+  //   smooth: 'easeInOutQuart'
+  // })
 }
 
 const Navbar = () =>
@@ -77,12 +77,13 @@ const Slides = () => {
 
 const About = () => {
   return(
-    <Main pad="large" height="100%" id="about" name="about">
+    <Main pad="large" id="about" name="about">
       <Heading>Something</Heading>
       <Paragraph>Something about something</Paragraph>
-      <Video controls="over" fit="contain">
-        <source key="video" src="/assets/small.mp4" type="video/mp4" />
+      <Video controls="over" alignSelf="start" loop={true} autoPlay={true} mute={true} width="640px" height="360px">
+        <source key="video" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/goatsVid1.mp4" type="video/mp4" />
       </Video>
+      <Paragraph>More things</Paragraph>
     </Main>
   )
 }
