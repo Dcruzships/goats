@@ -2,18 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo1_64.png'; // Tell webpack this JS file uses this image
 import './index.scss';
-import { Anchor, Box, Grommet, Header, Nav, Clock, Image, Carousel } from "grommet";
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Anchor, Box, Grommet, Header, Main, Paragraph, Heading, Nav, Image, Carousel, Video, Distribution, Text } from "grommet";
 import { grommet } from "grommet/themes";
 
 const items = [
-  { label: "About", href: "#" },
+  { label: "About", href: "#about" },
   { label: "Animals", href: "#" },
   { label: "Stories", href: "#" },
   { label: "Contact", href: "#" }
-];
-
-const images = [
-  "https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats1.png"
 ];
 
 function App()
@@ -22,24 +19,43 @@ function App()
     <Grommet theme={grommet} full>
       <Navbar />
       <Slides />
+      <About />
     </Grommet>
   );
 }
 
-function Navbar() {
+// function scrollTo() {
+//   scroller.scrollTo('scroll-to-element',
+//   {
+//     duration: 800,
+//     delay: 0,
+//     smooth: 'easeInOutQuart'
+//   })
+// }
+
+const scrollTo = () => {
+  scroller.scrollTo("about",
+  {
+    duration: 800,
+    delay: 0,
+    smooth: 'easeInOutQuart'
+  })
+}
+
+const Navbar = () =>
+{
   return(
-    <Header background="light-3" pad="small" height="10%">
-      <Box direction="row" align="center" gap="small">
+    <Header background="light-4" pad="medium" height="12%">
+      <Box direction="row" align="center" gap="medium">
         <Anchor href="https://github.com/dcruzships" target="_blank"><Image src={logo} alt="" /></Anchor>
         <Anchor color="black" href="https://github.com/dcruzships" target="_blank">
           Day 6 Farm
         </Anchor>
-        <Clock type="digital" />
       </Box>
 
       <Nav direction="row">
         {items.map(item => (
-          <Anchor href={item.href} label={item.label} key={item.label} />
+          <Anchor to="#about" onClick={scrollTo()} label={item.label} key={item.label} />
         ))}
       </Nav>
     </Header>
@@ -48,14 +64,26 @@ function Navbar() {
 
 const Slides = () => {
   return(
-    <Box align="center" pad="none" height="90%">
+    <Box align="center" pad="small" height="88%">
       <Carousel fill>
         <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats1.png" />
         <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats7.png" />
-        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats6.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats3.png" />
         <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats8.png" />
       </Carousel>
     </Box>
+  )
+}
+
+const About = () => {
+  return(
+    <Main pad="large" height="100%" id="about" name="about">
+      <Heading>Something</Heading>
+      <Paragraph>Something about something</Paragraph>
+      <Video controls="over" fit="contain">
+        <source key="video" src="/assets/small.mp4" type="video/mp4" />
+      </Video>
+    </Main>
   )
 }
 
