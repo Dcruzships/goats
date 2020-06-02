@@ -12,6 +12,10 @@ const items = [
   { label: "Contact", href: "#" }
 ];
 
+const images = [
+  "https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats1.png"
+];
+
 function App()
 {
   return(
@@ -46,9 +50,10 @@ const Slides = () => {
   return(
     <Box align="center" pad="none" height="90%">
       <Carousel fill>
-        <Image fit="cover" src="//v2.grommet.io/assets/Wilderpeople_Ricky.jpg" />
-        <Image fit="cover" src="//v2.grommet.io/assets/IMG_4245.jpg" />
-        <Image fit="cover" src="//v2.grommet.io/assets/IMG_4210.jpg" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats1.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats7.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats6.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats8.png" />
       </Carousel>
     </Box>
   )
