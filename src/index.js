@@ -1,30 +1,90 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import logo from './logo1_64.png'; // Tell webpack this JS file uses this image
 import './index.scss';
 import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Collapsible, Text, Footer, Accordion, AccordionPanel, Tabs, Tab, RangeInput } from "grommet";
 import { base } from "grommet/themes";
+import { Volume } from 'grommet-icons/icons/Volume';
 import ReactAudioPlayer from 'react-audio-player';
 
 var Scroll   = require('react-scroll');
 var scroller = Scroll.scroller;
+
+// const myTheme = {
+//   global: {
+//     font: {
+//       family: 'Open Sans'
+//     }
+//   },
+// };
 
 const items = [
   { label: "About", href: "aboutPage" },
   { label: "Contact", href: "contact" }
 ];
 
-const goats = [
-  { label: "goat0", name: "poppy", desc: "A good goat!" },
-  { label: "goat1", name: "blossom", desc: "A good goat!" },
-  { label: "goat2", name: "marvin", desc: "A good goat!" },
-  { label: "goat3", name: "myrtle", desc: "A good goat!" },
-  { label: "goat4", name: "clementine", desc: "A good goat!" },
-  { label: "goat5", name: "buford", desc: "A good goat!" },
-  { label: "goat6", name: "beulah", desc: "A good goat!" },
-  { label: "goat7", name: "mabel", desc: "A good goat!" },
-  { label: "goat8", name: "goats", desc: "Good goats!" },
-  { label: "goat9", name: "bruce", desc: "A good dog!" },
+const goats =
+  [{
+    label: "goat0",
+    name: "Poppy",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/poppy.png"
+  },
+  {
+    label: "goat1",
+    name: "Blossom",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/blossom.png"
+  },
+  {
+    label: "goat2",
+    name: "Marvin",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/marvin.png"
+  },
+  {
+    label: "goat3",
+    name: "Myrtle",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/myrtle.png"
+  },
+  {
+    label: "goat4",
+    name: "Clementine",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/clementine.png"
+  },
+  {
+    label: "goat5",
+    name: "Buford",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/buford.png"
+  },
+  {
+    label: "goat6",
+    name: "Beulah",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/beulah.png"
+  },
+  {
+    label: "goat7",
+    name: "Mabel",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/mabel.png"
+  },
+  {
+    label: "goat8",
+    name: "Goats",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats1.png"
+  },
+  {
+    label: "goat9",
+    name: "Bruce",
+    desc: "A good goat!",
+    src: "https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/bruce.png"
+  },
 ];
 
 class App extends React.Component
@@ -91,12 +151,10 @@ const About = () => {
   const [trackNum, setTrackNum] = useState(50);
   const [volume, setVolume] = useState(.2);
   let player;
-  let playerSource;
 
   function playTrack(label)
   {
     player = document.querySelector("#player");
-    playerSource = document.querySelector("#playerSource");
     player.src = `https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir${label}.ogg`;
 
     if(label !== trackNum)
@@ -119,23 +177,10 @@ const About = () => {
     player.volume = e.target.value;
   }
 
-  // const goats = [
-  //   { label: "goat0", name: "poppy", desc: "A good goat!" },
-  //   { label: "goat1", name: "blossom", desc: "A good goat!" },
-  //   { label: "goat2", name: "myrtle", desc: "A good goat!" },
-  //   { label: "goat3", name: "marvin", desc: "A good goat!" },
-  //   { label: "goat4", name: "clementine", desc: "A good goat!" },
-  //   { label: "goat5", name: "buford", desc: "A good goat!" },
-  //   { label: "goat6", name: "beulah", desc: "A good goat!" },
-  //   { label: "goat7", name: "mabel", desc: "A good goat!" },
-  //   { label: "goat8", name: "goats", desc: "Good goats!" },
-  //   { label: "goat9", name: "bruce", desc: "A good dog!" },
-  // ];
-
   return(
     <Box pad="medium" id="aboutPage" name="aboutPage" background="neutral-3">
       <Tabs alignSelf="center" pad="small">
-        <Tab title="About" width= "50vw">
+        <Tab title="About" width= "xlarge">
           <Grid
             rows={['medium', 'medium']}
             columns={['small', 'large']}
@@ -146,9 +191,9 @@ const About = () => {
               { name: 'vid', start: [1, 1], end: [1, 1] },
             ]}
             pad="large"
-            width="50vw"
+            width="xlarge"
           >
-            <Box gridArea="text" pad="medium" background="light-2">
+            <Box gridArea="text" pad="medium" background="light-2" round={true}>
               <Heading level="1">About</Heading>
               <Paragraph fill margin="small">
               Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori has dreamed of having a farm and raising animals since childhood. At first sight, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees, frolicking in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
@@ -159,7 +204,7 @@ const About = () => {
               And God made the beast of the earth after his kind, and cattle after their kind, and every thing that creepeth upon the earth after his kind: and God saw that it was good.”</Paragraph>
             </Box>
             <Box gridArea="vid" background="light-2" pad="medium">
-              <Video controls={false} loop={true} autoPlay={true} mute={true} fit={true}>
+              <Video controls={false} loop={true} autoPlay={true} mute={true} fit="contain">
                 <source key="video" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/goatsVid2.mp4" type="video/mp4" />
               </Video>
             </Box>
@@ -184,83 +229,34 @@ const About = () => {
             ]}
             pad="large"
           >
-            <Box gridArea="goat0" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/poppy.png"
-              />
-            </Box>
-            <Box gridArea="goat1" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/blossom.png"
-              />
-            </Box>
-            <Box gridArea="goat2" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/marvin.png"
-              />
-            </Box>
-            <Box gridArea="goat3" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/myrtle.png"
-              />
-            </Box>
-            <Box gridArea="goat4" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/clementine.png"
-              />
-            </Box>
-            <Box gridArea="goat5" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/buford.png"
-              />
-            </Box>
-            <Box gridArea="goat6" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/beulah.png"
-              />
-            </Box>
-            <Box gridArea="goat7" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/mabel.png"
-              />
-            </Box>
-            <Box gridArea="goat8" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats1.png"
-              />
-            </Box>
-            <Box gridArea="goat9" background="light-2" pad="small">
-              <Image
-                fit="cover"
-                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/bruce.png"
-              />
-            </Box>
+            {goats.map(goat => {
+              return(
+                <Box key={goat.name} gridArea={goat.label} background="light-2" pad="small">
+                  <Image
+                    fit="cover"
+                    src={goat.src}
+                  />
+                </Box>
+              )
+            })}
+
           </Grid>
         </Tab>
         <Tab title="Recordings and More!">
-          <Box background="light-2" pad="large" margin="large">
-            <Box direction="row" align="center" gap="xlarge">
-              <Heading level="2">Recordings</Heading>
-              <Box gap="small" direction="row" align="center">
-              <i className='fas fa-volume-up'></i>
-              <RangeInput
-                value={volume}
-                min={0}
-                max={1.0}
-                step={.1}
-                onChange={event => changeVolume(event)}
-                hoverIndicator={true}
-                style={{width:'50%'}}
-              />
+          <Box background="light-2" pad="large" direction="column" margin="large" width="xlarge" round={true}>
+            <Box direction="row" width="xlarge" justify="between">
+              <Heading level="1">Recordings</Heading>
+              <Box gap="small" align="center" direction="row" justify="end">
+                <Volume />
+                <RangeInput
+                  value={volume}
+                  min={0}
+                  max={1.0}
+                  step={.1}
+                  onChange={event => changeVolume(event)}
+                  hoverIndicator={true}
+                  style={{width:'50%'}}
+                />
               </Box>
             </Box>
             <Accordion pad="medium">
@@ -272,9 +268,9 @@ const About = () => {
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="First Steps" width="xlarge" onClick={() => playTrack(2)}>
-                <Box pad="medium" background="light-2" direction="row-reverse">
-                  <Text>"It was scary but wonderful... I had found this new source of peace and joy."</Text>
-                  <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats2.jpg" />
+                <Box pad="medium" background="light-2" direction="row">
+                  <Paragraph>"It was scary but wonderful... I had found this new source of peace and joy."</Paragraph>
+                  <Image fit="contain" height='small' width='small' src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats3.png" />
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="A Gift from God - Day Six Farm" width="xlarge" onClick={() => playTrack(3)}>
@@ -300,6 +296,7 @@ const About = () => {
             </Accordion>
             <ReactAudioPlayer id="player"
               src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir1.ogg"
+              volume={volume}
             />
           </Box>
         </Tab>
@@ -372,9 +369,11 @@ const FooterBar = () => {
   )
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+$(document).ready(function()
+{
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root'));
+});
