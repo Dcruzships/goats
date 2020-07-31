@@ -14,6 +14,18 @@ const items = [
   { label: "Contact", href: "contact" }
 ];
 
+const goats = [
+  { label: "goat0", name: "poppy", desc: "A good goat!" },
+  { label: "goat1", name: "blossom", desc: "A good goat!" },
+  { label: "goat2", name: "myrtle", desc: "A good goat!" },
+  { label: "goat3", name: "marvin", desc: "A good goat!" },
+  { label: "goat4", name: "clementine", desc: "A good goat!" },
+  { label: "goat5", name: "buford", desc: "A good goat!" },
+  { label: "goat6", name: "beulah", desc: "A good goat!" },
+  { label: "goat7", name: "mabel", desc: "A good goat!" },
+  { label: "goat8", name: "bruce", desc: "A good dog!" },
+];
+
 class App extends React.Component
 {
   render() {
@@ -62,11 +74,13 @@ class Navbar extends React.Component
 const Slides = () => {
   return(
     <Box align="center" pad="none" height="88%" id="mainSlides">
-      <Carousel fill play={5000} controls="selectors">
-        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats1.png" />
-        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats7.png" />
-        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats3.png" />
-        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/home/goats8.png" />
+      <Carousel fill play={5000} controls={true}>
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats1.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats4.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats7.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats3.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats5.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats8.png" />
       </Carousel>
     </Box>
   )
@@ -82,7 +96,7 @@ const About = () => {
     let playerSource = document.querySelector("#playerSource");
     player.src = `https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir${label}.ogg`;
 
-    if(label != trackNum)
+    if(label !== trackNum)
     {
       player.play();
       setIsPlaying(true);
@@ -147,7 +161,10 @@ const About = () => {
             pad="large"
           >
             <Box gridArea="goat0" background="light-2" pad="small">
-
+            <Image
+              fit="cover"
+              src=""
+            />
             </Box>
             <Box gridArea="goat1" background="light-2" pad="small">
 
