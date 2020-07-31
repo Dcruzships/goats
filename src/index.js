@@ -197,7 +197,7 @@ const About = () => {
             <Box gridArea="text" pad="medium" background="light-2" round={true}>
               <Heading level="1">About</Heading>
               <Paragraph fill margin="small">
-              Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori had dreamed of having a farm and raising animals since childhood. At first sight of her new home, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees and frolicked in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
+              Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferrell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori had dreamed of having a farm and raising animals since childhood. At first sight of her new home, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees and frolicked in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
             </Box>
             <Box gridArea="bible" background="light-2" pad="small" alignSelf="center">
               <Heading level="5" alignSelf="center"><b><a target="_blank" href="https://www.biblegateway.com/passage/?search=Genesis%201&version=KJV" rel="noopener noreferrer">Genesis 1:24-25</a></b></Heading>
@@ -261,7 +261,7 @@ const About = () => {
               </Box>
             </Box>
             <Accordion pad="medium">
-              <AccordionPanel label="My Name is Lori Ferell" width="xlarge" onClick={() => playTrack(1)}>
+              <AccordionPanel label="My Name is Lori Ferrell" width="xlarge" onClick={() => playTrack(1)}>
                 <Box pad="medium" background="light-2" direction="row-responsive">
                   <Paragraph>I grew up in Richardson, TX. While my relatives lived in the country, I embraced the city life for years. I was a guidance counselor for a long time, and I developed a passion for service. Helping others, watching life grow. <br /> <br />
                   In April 2018 I got my first fifteen goats! Since then I have learned to love all life that I come across. Watching them grow up, their little personality quirks coming about, it's a miracle to witness. </Paragraph>
@@ -269,9 +269,9 @@ const About = () => {
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="First Steps" width="xlarge" onClick={() => playTrack(2)}>
-                <Box pad="medium" background="light-2" direction="row-reverse">
+                <Box pad="medium" background="light-2" direction="row-reverse" gap="medium">
                   <Paragraph align="start">"It was scary but wonderful... I had found this new source of peace and joy. It was scary but wonderful... I had found this new source of peace and joy. It was scary but wonderful... I had found this new source of peace and joy."</Paragraph>
-                  <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats3.png" />
+                  <Image fit="contain" width="250px" height="400px" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats3.png" />
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="A Gift from God - Day Six Farm" width="xlarge" onClick={() => playTrack(3)}>
