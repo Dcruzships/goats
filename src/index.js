@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo1_64.png'; // Tell webpack this JS file uses this image
 import './index.scss';
-import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Collapsible, Text, Footer, Accordion, AccordionPanel, Tabs, Tab, Table, TableHeader, TableRow, TableCell, TableBody } from "grommet";
+import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Collapsible, Text, Footer, Accordion, AccordionPanel, Tabs, Tab, RangeInput } from "grommet";
 import { base } from "grommet/themes";
 import ReactAudioPlayer from 'react-audio-player';
 
@@ -88,25 +88,35 @@ const Slides = () => {
 }
 
 const About = () => {
-  const [trackNum, setTrackNum] = useState(-1);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [trackNum, setTrackNum] = useState(50);
+  const [volume, setVolume] = useState(.2);
+  let player;
+  let playerSource;
 
   function playTrack(label)
   {
-    let player = document.querySelector("#player");
-    let playerSource = document.querySelector("#playerSource");
+    player = document.querySelector("#player");
+    playerSource = document.querySelector("#playerSource");
     player.src = `https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir${label}.ogg`;
 
     if(label !== trackNum)
     {
       player.play();
-      setIsPlaying(true);
       setTrackNum(label);
     }
     else {
       player.pause();
       setTrackNum(50);
     }
+  }
+
+  function changeVolume(e)
+  {
+    e.preventDefault();
+    setVolume(e.target.value);
+    player = document.querySelector("#player");
+
+    player.volume = e.target.value;
   }
 
   // const goats = [
@@ -238,41 +248,51 @@ const About = () => {
         </Tab>
         <Tab title="Recordings and More!">
           <Box background="light-2" pad="large" margin="large">
-            <Heading level="2">Recordings</Heading>
+            <Box direction="row" align="center" gap="xlarge">
+              <Heading level="2">Recordings</Heading>
+              <Box gap="small" direction="row" align="center">
+              <i className='fas fa-volume-up'></i>
+              <RangeInput
+                value={volume}
+                min={0}
+                max={1.0}
+                step={.1}
+                onChange={event => changeVolume(event)}
+                hoverIndicator={true}
+                style={{width:'50%'}}
+              />
+              </Box>
+            </Box>
             <Accordion pad="medium">
-              <AccordionPanel label="My name is Lori Ferell" width="xlarge" onClick={() => playTrack(1)}>
-                <Box pad="medium" background="light-2">
+              <AccordionPanel label="My Name Is Lori Ferell" width="xlarge" onClick={() => playTrack(1)}>
+                <Box pad="medium" background="light-2" direction="row">
                   <Paragraph>I grew up in Richardson, TX. While my relatives lived in the country, I embraced the city life for years. I was a guidance counselor for a long time, and I developed a passion for service. Helping others, watching life grow. <br /> <br />
                   In April 2018 I got my first fifteen goats! Since then I have learned to love all life that I come across. Watching them grow up, their little personality quirks coming about, it's a miracle to witness. </Paragraph>
-                  <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/lori2.png" />
+                  <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/lori.jpg" />
                 </Box>
               </AccordionPanel>
-              <AccordionPanel label="Panel 2" width="xlarge" onClick={() => playTrack(2)}>
-                <Box pad="medium" background="light-2">
-                  <Text>Two</Text>
+              <AccordionPanel label="First Steps" width="xlarge" onClick={() => playTrack(2)}>
+                <Box pad="medium" background="light-2" direction="row-reverse">
+                  <Text>"It was scary but wonderful... I had found this new source of peace and joy."</Text>
+                  <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats2.jpg" />
                 </Box>
               </AccordionPanel>
-              <AccordionPanel label="Panel 3" width="xlarge" onClick={() => playTrack(3)}>
+              <AccordionPanel label="A Gift from God - Day Six Farm" width="xlarge" onClick={() => playTrack(3)}>
                 <Box pad="medium" background="light-2">
                   <Text>Three</Text>
                 </Box>
               </AccordionPanel>
-              <AccordionPanel label="Panel 4" width="xlarge" onClick={() => playTrack(4)}>
-                <Box pad="medium" background="light-2">
-                  <Text>Four</Text>
-                </Box>
-              </AccordionPanel>
-              <AccordionPanel label="Panel 5" width="xlarge" onClick={() => playTrack(5)}>
+              <AccordionPanel label="Learning from Baby Goats!" width="xlarge" onClick={() => playTrack(5)}>
                 <Box pad="medium" background="light-2">
                   <Text>Five</Text>
                 </Box>
               </AccordionPanel>
-              <AccordionPanel label="Panel 6" width="xlarge" onClick={() => playTrack(6)}>
+              <AccordionPanel label="Selling Goats" width="xlarge" onClick={() => playTrack(6)}>
                 <Box pad="medium" background="light-2">
                   <Text>Six</Text>
                 </Box>
               </AccordionPanel>
-              <AccordionPanel label="Panel 7" width="xlarge" onClick={() => playTrack(7)}>
+              <AccordionPanel label="All Natural!" width="xlarge" onClick={() => playTrack(7)}>
                 <Box pad="medium" background="light-2">
                   <Text>Seven</Text>
                 </Box>
@@ -289,8 +309,6 @@ const About = () => {
 }
 
 const Contact = (props) => {
-  const [panelNum, setPanelNum] = useState(0);
-  const [mouseX, setMouseX] = useState(0);
 
   function handleClick(e)
   {
