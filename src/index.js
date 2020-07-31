@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo1_64.png'; // Tell webpack this JS file uses this image
 import './index.scss';
-import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Collapsible, Text, Footer, Accordion, AccordionPanel, Tabs, Tab } from "grommet";
+import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Collapsible, Text, Footer, Accordion, AccordionPanel, Tabs, Tab, Table, TableHeader, TableRow, TableCell, TableBody } from "grommet";
 import { base } from "grommet/themes";
+import ReactAudioPlayer from 'react-audio-player';
 
 var Scroll   = require('react-scroll');
 var scroller = Scroll.scroller;
@@ -76,8 +77,23 @@ const Slides = () => {
 }
 
 const About = () => {
+  const [trackNum, setTrackNum] = useState(-1);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  function playTrack(label)
+  {
+    document.querySelector("#player").play();
+
+    // let player = document.querySelector("#player");
+    // let playerSource = document.querySelector("#playerSource");
+    // setIsPlaying(true);
+    // setTrackNum(label);
+    // playerSource.src = `./assets/audio/memoir${label}.ogg`;
+    // document.querySelector("#player").play();
+  }
+
   return(
-    <Box pad="medium" id="aboutPage" name="aboutPage" background="neutral-3" fill>
+    <Box pad="medium" id="aboutPage" name="aboutPage" background="neutral-3">
       <Tabs alignSelf="center" pad="small">
         <Tab title="About">
           <Grid
@@ -91,7 +107,7 @@ const About = () => {
             ]}
             pad="large"
           >
-            <Box gridArea="text" pad="small" background="light-2">
+            <Box gridArea="text" pad="medium" background="light-2">
               <Heading level="1">About</Heading>
               <Paragraph fill margin="small">
               Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori has dreamed of having a farm and raising animals since childhood. At first sight, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees, frolicking in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
@@ -160,15 +176,78 @@ const About = () => {
           </Grid>
         </Tab>
         <Tab title="Audio">
-          <Box pad="medium" fill>
-            <Heading level="1">Audio</Heading>
-            <Paragraph fill>Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori has dreamed of having a farm and raising animals since childhood. At first sight, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees, frolicking in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
+          <Box background="light-2" pad="large" margin="large">
+            <Heading level="2">Recordings</Heading>
+            <Accordion pad="medium">
+              <AccordionPanel label="Panel 1" width="xlarge" onClick={() => playTrack(1)}>
+                <Box pad="medium" background="light-2">
+                  <Text>One</Text>
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Panel 2" width="xlarge" onClick={() => playTrack(2)}>
+                <Box pad="medium" background="light-2">
+                  <Text>Two</Text>
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Panel 3" width="xlarge" onClick={() => playTrack(3)}>
+                <Box pad="medium" background="light-2">
+                  <Text>Three</Text>
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Panel 4" width="xlarge" onClick={() => playTrack(4)}>
+                <Box pad="medium" background="light-2">
+                  <Text>Four</Text>
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Panel 5" width="xlarge" onClick={() => playTrack(5)}>
+                <Box pad="medium" background="light-2">
+                  <Text>Five</Text>
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Panel 6" width="xlarge" onClick={() => playTrack(6)}>
+                <Box pad="medium" background="light-2">
+                  <Text>Six</Text>
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Panel 7" width="xlarge" onClick={() => playTrack(7)}>
+                <Box pad="medium" background="light-2">
+                  <Text>Seven</Text>
+                </Box>
+              </AccordionPanel>
+            </Accordion>
+            <ReactAudioPlayer
+              src="./assets/audio/memoir1.ogg"
+              autoPlay
+              controls
+            />
           </Box>
         </Tab>
         <Tab title="FAQ">
-          <Box pad="medium" fill>
-            <Heading level="1">FAQ</Heading>
-            <Paragraph fill>Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori has dreamed of having a farm and raising animals since childhood. At first sight, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees, frolicking in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
+          <Box background="light-2" pad="large" margin="large">
+            <Table pad="medium">
+              <TableHeader>
+                <TableRow>
+                  <TableCell scope="col" border="bottom">
+                  </TableCell>
+                  <TableCell scope="col" border="bottom">
+                  </TableCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell scope="row">
+                    <strong>Q1</strong>
+                  </TableCell>
+                  <TableCell>Coconut</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell scope="row">
+                    <strong>Chris</strong>
+                  </TableCell>
+                  <TableCell>Watermelon</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </Box>
         </Tab>
       </Tabs>
