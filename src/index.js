@@ -11,9 +11,7 @@ var scroller = Scroll.scroller;
 
 const items = [
   { label: "About", href: "aboutPage" },
-  { label: "Animals", href: "animalsPage" },
-  { label: "Stories", href: "storiesPage" },
-  { label: "Contact", href: "contactPage" }
+  { label: "Contact", href: "contact" }
 ];
 
 class App extends React.Component
@@ -26,9 +24,7 @@ class App extends React.Component
           <Slides />
         </Box>
         <About />
-        <Box height="100vh" pad="large" id="animals" name="animals" focusIndicator={false}>
-          <Animals />
-        </Box>
+        <Contact />
       </Grommet>
     );
   }
@@ -47,8 +43,8 @@ class Navbar extends React.Component
     return(
       <Header background="light-4" pad="medium" id="header" height="12%" size="small">
         <Box direction="row" align="center" gap="medium">
-          <Anchor href="https://github.com/dcruzships" target="_blank"><Image src={logo} alt="" /></Anchor>
-          <Anchor color="black" href="https://github.com/dcruzships" target="_blank">
+          <Anchor href="https://dcruzships.github.io/goats/" target="_blank"><Image src={logo} alt="" /></Anchor>
+          <Anchor color="black" href="https://dcruzships.github.io/goats/" target="_blank">
             Day Six Farm
           </Anchor>
         </Box>
@@ -82,20 +78,26 @@ const About = () => {
 
   function playTrack(label)
   {
-    document.querySelector("#player").play();
+    let player = document.querySelector("#player");
+    let playerSource = document.querySelector("#playerSource");
+    player.src = `https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir${label}.ogg`;
 
-    // let player = document.querySelector("#player");
-    // let playerSource = document.querySelector("#playerSource");
-    // setIsPlaying(true);
-    // setTrackNum(label);
-    // playerSource.src = `./assets/audio/memoir${label}.ogg`;
-    // document.querySelector("#player").play();
+    if(label != trackNum)
+    {
+      player.play();
+      setIsPlaying(true);
+      setTrackNum(label);
+    }
+    else {
+      player.pause();
+      setTrackNum(50);
+    }
   }
 
   return(
     <Box pad="medium" id="aboutPage" name="aboutPage" background="neutral-3">
       <Tabs alignSelf="center" pad="small">
-        <Tab title="About">
+        <Tab title="About" width= "50vw">
           <Grid
             rows={['medium', 'medium']}
             columns={['small', 'large']}
@@ -106,6 +108,7 @@ const About = () => {
               { name: 'vid', start: [1, 1], end: [1, 1] },
             ]}
             pad="large"
+            width="50vw"
           >
             <Box gridArea="text" pad="medium" background="light-2">
               <Heading level="1">About</Heading>
@@ -175,11 +178,11 @@ const About = () => {
             </Box>
           </Grid>
         </Tab>
-        <Tab title="Audio">
+        <Tab title="Recordings and More!">
           <Box background="light-2" pad="large" margin="large">
             <Heading level="2">Recordings</Heading>
             <Accordion pad="medium">
-              <AccordionPanel label="Panel 1" width="xlarge" onClick={() => playTrack(1)}>
+              <AccordionPanel label="My name is Lori Ferell" width="xlarge" onClick={() => playTrack(1)}>
                 <Box pad="medium" background="light-2">
                   <Text>One</Text>
                 </Box>
@@ -215,39 +218,9 @@ const About = () => {
                 </Box>
               </AccordionPanel>
             </Accordion>
-            <ReactAudioPlayer
-              src="./assets/audio/memoir1.ogg"
-              autoPlay
-              controls
+            <ReactAudioPlayer id="player"
+              src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir1.ogg"
             />
-          </Box>
-        </Tab>
-        <Tab title="FAQ">
-          <Box background="light-2" pad="large" margin="large">
-            <Table pad="medium">
-              <TableHeader>
-                <TableRow>
-                  <TableCell scope="col" border="bottom">
-                  </TableCell>
-                  <TableCell scope="col" border="bottom">
-                  </TableCell>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell scope="row">
-                    <strong>Q1</strong>
-                  </TableCell>
-                  <TableCell>Coconut</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row">
-                    <strong>Chris</strong>
-                  </TableCell>
-                  <TableCell>Watermelon</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
           </Box>
         </Tab>
       </Tabs>
@@ -255,7 +228,7 @@ const About = () => {
   )
 }
 
-const Animals = (props) => {
+const Contact = (props) => {
   const [panelNum, setPanelNum] = useState(0);
   const [mouseX, setMouseX] = useState(0);
 
@@ -282,13 +255,9 @@ const Animals = (props) => {
   }
 
   return(
-    <Carousel fill controls="arrows" onClick={handleClick}>
-      <GoatGrid panel={panelNum} name1="goat1" name2="goat2" name3="goat3" />
-      <GoatGrid panel={panelNum} name1="goat4" name2="goat5" name3="goat6" />
-      <GoatGrid panel={panelNum} name1="goat7" name2="goat8" name3="goat9" />
-      <GoatGrid panel={panelNum} name1="goat10" name2="goat11" name3="goat12" />
-      <GoatGrid panel={panelNum} name1="goat13" name2="goat14" name3="goat15" />
-    </Carousel>
+    <Box height="100vh" pad="large" id="contact" name="contact" focusIndicator={false} background="light-2">
+
+    </Box>
   )
 }
 
