@@ -17,13 +17,14 @@ const items = [
 const goats = [
   { label: "goat0", name: "poppy", desc: "A good goat!" },
   { label: "goat1", name: "blossom", desc: "A good goat!" },
-  { label: "goat2", name: "myrtle", desc: "A good goat!" },
-  { label: "goat3", name: "marvin", desc: "A good goat!" },
+  { label: "goat2", name: "marvin", desc: "A good goat!" },
+  { label: "goat3", name: "myrtle", desc: "A good goat!" },
   { label: "goat4", name: "clementine", desc: "A good goat!" },
   { label: "goat5", name: "buford", desc: "A good goat!" },
   { label: "goat6", name: "beulah", desc: "A good goat!" },
   { label: "goat7", name: "mabel", desc: "A good goat!" },
-  { label: "goat8", name: "bruce", desc: "A good dog!" },
+  { label: "goat8", name: "goats", desc: "Good goats!" },
+  { label: "goat9", name: "bruce", desc: "A good dog!" },
 ];
 
 class App extends React.Component
@@ -108,6 +109,19 @@ const About = () => {
     }
   }
 
+  // const goats = [
+  //   { label: "goat0", name: "poppy", desc: "A good goat!" },
+  //   { label: "goat1", name: "blossom", desc: "A good goat!" },
+  //   { label: "goat2", name: "myrtle", desc: "A good goat!" },
+  //   { label: "goat3", name: "marvin", desc: "A good goat!" },
+  //   { label: "goat4", name: "clementine", desc: "A good goat!" },
+  //   { label: "goat5", name: "buford", desc: "A good goat!" },
+  //   { label: "goat6", name: "beulah", desc: "A good goat!" },
+  //   { label: "goat7", name: "mabel", desc: "A good goat!" },
+  //   { label: "goat8", name: "goats", desc: "Good goats!" },
+  //   { label: "goat9", name: "bruce", desc: "A good dog!" },
+  // ];
+
   return(
     <Box pad="medium" id="aboutPage" name="aboutPage" background="neutral-3">
       <Tabs alignSelf="center" pad="small">
@@ -161,37 +175,64 @@ const About = () => {
             pad="large"
           >
             <Box gridArea="goat0" background="light-2" pad="small">
-            <Image
-              fit="cover"
-              src=""
-            />
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/poppy.png"
+              />
             </Box>
             <Box gridArea="goat1" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/blossom.png"
+              />
             </Box>
             <Box gridArea="goat2" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/marvin.png"
+              />
             </Box>
             <Box gridArea="goat3" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/myrtle.png"
+              />
             </Box>
             <Box gridArea="goat4" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/clementine.png"
+              />
             </Box>
             <Box gridArea="goat5" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/buford.png"
+              />
             </Box>
             <Box gridArea="goat6" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/beulah.png"
+              />
             </Box>
             <Box gridArea="goat7" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/mabel.png"
+              />
             </Box>
             <Box gridArea="goat8" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats1.png"
+              />
             </Box>
             <Box gridArea="goat9" background="light-2" pad="small">
-
+              <Image
+                fit="cover"
+                src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/panels/bruce.png"
+              />
             </Box>
           </Grid>
         </Tab>
@@ -201,7 +242,9 @@ const About = () => {
             <Accordion pad="medium">
               <AccordionPanel label="My name is Lori Ferell" width="xlarge" onClick={() => playTrack(1)}>
                 <Box pad="medium" background="light-2">
-                  <Text>One</Text>
+                  <Paragraph>I grew up in Richardson, TX. While my relatives lived in the country, I embraced the city life for years. I was a guidance counselor for a long time, and I developed a passion for service. Helping others, watching life grow. <br /> <br />
+                  In April 2018 I got my first fifteen goats! Since then I have learned to love all life that I come across. Watching them grow up, their little personality quirks coming about, it's a miracle to witness. </Paragraph>
+                  <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/lori2.png" />
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="Panel 2" width="xlarge" onClick={() => playTrack(2)}>
