@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/goats/static/css/main.fc73191f.chunk.css",
-    "main.js": "/goats/static/js/main.23a45924.chunk.js",
-    "main.js.map": "/goats/static/js/main.23a45924.chunk.js.map",
+    "main.js": "/goats/static/js/main.01ca7a76.chunk.js",
+    "main.js.map": "/goats/static/js/main.01ca7a76.chunk.js.map",
     "runtime-main.js": "/goats/static/js/runtime-main.1cc38658.js",
     "runtime-main.js.map": "/goats/static/js/runtime-main.1cc38658.js.map",
     "static/js/2.7f4f3e65.chunk.js": "/goats/static/js/2.7f4f3e65.chunk.js",
     "static/js/2.7f4f3e65.chunk.js.map": "/goats/static/js/2.7f4f3e65.chunk.js.map",
     "index.html": "/goats/index.html",
-    "precache-manifest.d51144283768a75d0a9d07b9b325fc63.js": "/goats/precache-manifest.d51144283768a75d0a9d07b9b325fc63.js",
+    "precache-manifest.cc2ceef07fc1e3fec2954970d8b28344.js": "/goats/precache-manifest.cc2ceef07fc1e3fec2954970d8b28344.js",
     "service-worker.js": "/goats/service-worker.js",
     "static/css/main.fc73191f.chunk.css.map": "/goats/static/css/main.fc73191f.chunk.css.map",
     "static/js/2.7f4f3e65.chunk.js.LICENSE.txt": "/goats/static/js/2.7f4f3e65.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.1cc38658.js",
     "static/js/2.7f4f3e65.chunk.js",
     "static/css/main.fc73191f.chunk.css",
-    "static/js/main.23a45924.chunk.js"
+    "static/js/main.01ca7a76.chunk.js"
   ]
 }

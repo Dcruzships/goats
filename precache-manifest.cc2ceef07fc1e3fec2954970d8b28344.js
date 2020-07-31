@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f490c3ae82a8f75a30068f4cb4db1304",
+    "revision": "e29b98a449304a702aad5454a38f5448",
     "url": "/goats/index.html"
   },
   {
-    "revision": "f798e2b8cc759826b76c",
+    "revision": "661ef9e17f0b8ce04d2a",
     "url": "/goats/static/css/main.fc73191f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/goats/static/js/2.7f4f3e65.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f798e2b8cc759826b76c",
-    "url": "/goats/static/js/main.23a45924.chunk.js"
+    "revision": "661ef9e17f0b8ce04d2a",
+    "url": "/goats/static/js/main.01ca7a76.chunk.js"
   },
   {
     "revision": "10982dd1999299090ab5",
