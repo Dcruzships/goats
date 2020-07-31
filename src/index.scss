@@ -1,9 +1,21 @@
-$pageWidth: 100vw;
+$pageWidth: 99vw;
 $pageHeight: 100vh;
 $colorBG: black;
 $colorMain: white;
 $fontMain: 'Open Sans', sans-serif;
 
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: white;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 1.5px solid white;
+}
 
 html {
   height: 100%;
@@ -16,7 +28,20 @@ body {
   background-color: black;
   color: white;
   font-family: $fontMain;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+#mainSlides {
+  border:solid;
+}
+
+#aboutPage {
+  border: solid;
+}
+
+#mainVid {
+  
 }
