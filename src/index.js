@@ -140,7 +140,6 @@ const Slides = () => {
         <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats4.png" />
         <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats7.png" />
         <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats3.png" />
-        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats5.png" />
         <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats8.png" />
       </Carousel>
     </Box>
@@ -196,7 +195,7 @@ const About = () => {
             <Box gridArea="text" pad="medium" background="light-2" round={true}>
               <Heading level="1">About</Heading>
               <Paragraph fill margin="small">
-              Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori has dreamed of having a farm and raising animals since childhood. At first sight, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees, frolicking in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
+              Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori had dreamed of having a farm and raising animals since childhood. At first sight of her new home, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees and frolicked in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
             </Box>
             <Box gridArea="bible" background="light-2" pad="small" alignSelf="center">
               <Heading level="5" alignSelf="center"><b><u>Genesis 1:24-25</u></b></Heading>
@@ -243,7 +242,7 @@ const About = () => {
           </Grid>
         </Tab>
         <Tab title="Recordings and More!">
-          <Box background="light-2" pad="large" direction="column" margin="large" width="xlarge" round={true}>
+          <Box background="light-2" pad="large" margin="large" width="xlarge" round={true}>
             <Box direction="row" width="xlarge" justify="between">
               <Heading level="1">Recordings</Heading>
               <Box gap="small" align="center" direction="row" justify="end">
@@ -260,17 +259,17 @@ const About = () => {
               </Box>
             </Box>
             <Accordion pad="medium">
-              <AccordionPanel label="My Name Is Lori Ferell" width="xlarge" onClick={() => playTrack(1)}>
+              <AccordionPanel label="My Name is Lori Ferell" width="xlarge" onClick={() => playTrack(1)}>
                 <Box pad="medium" background="light-2" direction="row">
                   <Paragraph>I grew up in Richardson, TX. While my relatives lived in the country, I embraced the city life for years. I was a guidance counselor for a long time, and I developed a passion for service. Helping others, watching life grow. <br /> <br />
                   In April 2018 I got my first fifteen goats! Since then I have learned to love all life that I come across. Watching them grow up, their little personality quirks coming about, it's a miracle to witness. </Paragraph>
-                  <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/lori.jpg" />
+                  <Image src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/lori.jpg" />
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="First Steps" width="xlarge" onClick={() => playTrack(2)}>
                 <Box pad="medium" background="light-2" direction="row">
-                  <Paragraph>"It was scary but wonderful... I had found this new source of peace and joy."</Paragraph>
-                  <Image fit="contain" height='small' width='small' src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats3.png" />
+                  <Paragraph>"It was scary but wonderful... I had found this new source of peace and joy. It was scary but wonderful... I had found this new source of peace and joy. It was scary but wonderful... I had found this new source of peace and joy."</Paragraph>
+                  <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats3.png" />
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="A Gift from God - Day Six Farm" width="xlarge" onClick={() => playTrack(3)}>
