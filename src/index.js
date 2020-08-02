@@ -461,8 +461,8 @@ const MobileContact = (props) => {
     <Box pad="medium" id="contact" name="contact" background="neutral-4" direction="column" align="center" alignSelf="center" justify="center">
       <Heading level="1"><u>Contact Me</u></Heading>
       <Grid
-        rows={['large', 'medium', 'xxsmall']}
-        columns={['small']}
+        rows={['medium', 'small', 'xxsmall']}
+        columns={['medium']}
         gap="medium"
         areas={[
           { name: 'pic1', start: [0, 1], end: [0, 1] },
@@ -473,23 +473,20 @@ const MobileContact = (props) => {
         width="medium"
         alignSelf="center"
       >
-        <Box pad="small" gridArea="info" background="light-2" align="center" justify="center" textAlign="center">
-          <Paragraph size="large" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. They all have loving, joyful spirits and deserve to find happiness! I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
+        <Box pad="medium" gridArea="info" background="light-2" align="center" justify="center" textAlign="center">
+          <Paragraph size="large" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
 
-          Most of them are boer, kiko, or cross-breeds. My prices range anywhere from $100 - $500, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
+          Most of them are boer, kiko, or cross-breeds. If interested, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
           </Paragraph>
         </Box>
         <Box pad="medium" gridArea="pic1">
           <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra1.png" />
         </Box>
-        <Box pad="medium" gridArea="pic2">
-          <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra6.png" />
-        </Box>
-        <Box pad="small" gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="small">
-          <Facebook size="small" />
-          <Twitter size="small" />
-          <Youtube size="small" />
-          <a href="https://github.com/Dcruzships/goats" target="_blank" rel="noopener noreferrer"><Github size="small" /></a>
+        <Box gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="large">
+          <Facebook size="medium" />
+          <Twitter size="medium" />
+          <Youtube size="medium" />
+          <a href="https://github.com/Dcruzships/goats" target="_blank" rel="noopener noreferrer"><Github size="medium" /></a>
         </Box>
       </Grid>
     </Box>
