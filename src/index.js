@@ -25,8 +25,7 @@ const items = [
   { label: "Contact", href: "contact" }
 ];
 
-const goats =
-  [
+const goats = [
   {
     label: "goat0",
     name: "Poppy",
@@ -91,17 +90,58 @@ const goats =
 
 class App extends React.Component
 {
-  render() {
-    return(
-      <Grommet theme={base}>
-        <Box height="100vh" id="home" name="home">
-          <Navbar />
-          <Slides />
-        </Box>
-        <About />
-        <Contact />
-      </Grommet>
-    );
+  constructor() {
+    super();
+    this.state = {
+      width: window.innerWidth,
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  // make sure to remove the listener
+  // when the component is not mounted anymore
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+
+  render()
+  {
+    const { width } = this.state;
+    const isMobile = width <= 500;
+
+    // the rest is the same...
+    if(isMobile)
+    {
+      return(
+        <Grommet theme={base}>
+          <Box id="home" name="home">
+            <MobileNav />
+            <Slides />
+          </Box>
+          <MobileAbout />
+          <MobileContact />
+        </Grommet>
+      );
+    }
+    else {
+      return(
+        <Grommet theme={base}>
+          <Box height="100vh" id="home" name="home">
+            <Navbar />
+            <Slides />
+          </Box>
+          <About />
+          <Contact />
+        </Grommet>
+      );
+    }
   }
 }
 
@@ -129,6 +169,32 @@ class Navbar extends React.Component
             <Anchor onClick={() => this.handleScroll(item.href)} label={item.label} key={item.label} />
           ))}
         </Nav>
+      </Header>
+    )
+  }
+}
+
+class MobileNav extends React.Component
+{
+  handleScroll = (dest) => {
+    scroller.scrollTo(dest, {
+      duration: 1500,
+      smooth: true,
+    });
+  }
+
+  render() {
+    return(
+      <Header background="light-4" pad="medium" id="header" height="12%" size="small">
+        <Box direction="row" align="center" gap="medium">
+          <Anchor href="https://dcruzships.github.io/goats/" target="_blank"><Image src={logo} alt="" /></Anchor>
+          <Anchor color="black" href="https://dcruzships.github.io/goats/" target="_blank">
+            Day Six Farm
+          </Anchor>
+        </Box>
+
+      <Anchor onClick={() => this.handleScroll(items[1].href)} label={items[1].label} key={items[1].label} />
+
       </Header>
     )
   }
@@ -333,6 +399,99 @@ const About = () => {
           </Box>
         </Tab>
       </Tabs>
+    </Box>
+  )
+}
+
+const MobileAbout = () => {
+  return(
+    <Box pad="xsmall" id="aboutPage" name="aboutPage" background="neutral-3">
+      <Tabs alignSelf="center" pad='small'>
+        <Tab title="About">
+          <Grid
+            rows={['medium', 'small', 'small']}
+            columns={['88vw']}
+            gap="small"
+            areas={[
+              { name: 'text', start: [0, 0], end: [0, 0] },
+              { name: 'bible', start: [0, 2], end: [0, 2] },
+              { name: 'vid', start: [0, 1], end: [0, 1] },
+            ]}
+            pad="medium"
+            width="medium"
+          >
+            <Box gridArea="text" pad="small" background="light-2" round={true}>
+              <Heading level="1">About</Heading>
+              <Paragraph margin="xsmall" size="medium">
+              Day Six Farm is a home for 32 goats and 12 mallard ducks. Lori Ferrell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature. After opening her farm, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in it all. The name was chosen to give thanks and honor to God.</Paragraph>
+            </Box>
+            <Box gridArea="bible" background="light-2" pad="small" alignSelf="center">
+              <Text level="3" alignSelf="center" pad='xxsmall'><b><a target="_blank" href="https://www.biblegateway.com/passage/?search=Genesis%201&version=KJV" rel="noopener noreferrer">Genesis 1:24-25</a></b></Text>
+              <Paragraph size="small" alignSelf="center" textAlign="center">“And God said, Let the earth bring forth the living creature after his kind, cattle, and creeping thing, and beast of the earth after his kind: and it was so.
+              And God made the beast of the earth after his kind, and cattle after their kind, and every thing that creepeth upon the earth after his kind: and God saw that it was good.”</Paragraph>
+            </Box>
+            <Box gridArea="vid" background="light-2" pad="small">
+              <Video controls={false} loop={true} autoPlay={true} mute={true} fit="contain">
+                <source key="video" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/goatsVid2.mp4" type="video/mp4" />
+              </Video>
+            </Box>
+          </Grid>
+        </Tab>
+        <Tab title="Goats">
+          <Carousel pad="medium" controls="arrows">
+            {goats.map(goat => {
+              return(
+                <Box key={goat.name} background="light-2">
+                  <Image
+                    fit="cover"
+                    src={goat.src}
+                  />
+                </Box>
+              )
+            })}
+          </Carousel>
+        </Tab>
+      </Tabs>
+    </Box>
+  )
+}
+
+const MobileContact = (props) => {
+  return(
+    <Box pad="medium" id="contact" name="contact" background="neutral-4" direction="column" align="center" alignSelf="center" justify="center">
+      <Heading level="1"><u>Contact Me</u></Heading>
+      <Grid
+        rows={['large', 'medium', 'xxsmall']}
+        columns={['small']}
+        gap="medium"
+        areas={[
+          { name: 'pic1', start: [0, 1], end: [0, 1] },
+          { name: 'info', start: [0, 0], end: [0, 0] },
+          { name: 'links', start: [0, 2], end: [0, 2] },
+        ]}
+        pad="medium"
+        width="medium"
+        alignSelf="center"
+      >
+        <Box pad="small" gridArea="info" background="light-2" align="center" justify="center" textAlign="center">
+          <Paragraph size="large" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. They all have loving, joyful spirits and deserve to find happiness! I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
+
+          Most of them are boer, kiko, or cross-breeds. My prices range anywhere from $100 - $500, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
+          </Paragraph>
+        </Box>
+        <Box pad="medium" gridArea="pic1">
+          <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra1.png" />
+        </Box>
+        <Box pad="medium" gridArea="pic2">
+          <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra6.png" />
+        </Box>
+        <Box pad="small" gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="small">
+          <Facebook size="small" />
+          <Twitter size="small" />
+          <Youtube size="small" />
+          <a href="https://github.com/Dcruzships/goats" target="_blank" rel="noopener noreferrer"><Github size="small" /></a>
+        </Box>
+      </Grid>
     </Box>
   )
 }
