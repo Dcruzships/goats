@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import logo from './logo1_64.png'; // Tell webpack this JS file uses this image
 import './index.scss';
-import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Collapsible, Text, Accordion, AccordionPanel, Tabs, Tab, RangeInput } from "grommet";
+import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Text, Accordion, AccordionPanel, Tabs, Tab, RangeInput, Collapsible } from "grommet";
 import { base } from "grommet/themes";
 import { Volume } from 'grommet-icons/icons/Volume';
 import { Facebook, Youtube, Github, Twitter } from 'grommet-icons';
@@ -214,6 +214,27 @@ const Slides = () => {
   )
 }
 
+const GoatPanel = (props) => {
+  const [open, setOpen] = useState(false);
+
+  function goatExpand(e)
+  {
+    e.preventDefault();
+    setOpen(!open);
+  }
+
+  return(
+    <Box key={props.goat.name} gridArea={props.goat.label} onClick={event => goatExpand(event)} background="light-2" pad="xsmall">
+      <Image
+        fit="cover"
+        src={props.goat.src}
+        key={props.goat.name}
+      />
+      <Collapsible open={open} direction="vertical"><Text alignSelf="center">{props.goat.name}</Text></Collapsible>
+    </Box>
+  )
+}
+
 const About = () => {
   const [trackNum, setTrackNum] = useState(50);
   const [volume, setVolume] = useState(.4);
@@ -298,12 +319,7 @@ const About = () => {
           >
             {goats.map(goat => {
               return(
-                <Box key={goat.name} gridArea={goat.label} background="light-2" pad="small">
-                  <Image
-                    fit="cover"
-                    src={goat.src}
-                  />
-                </Box>
+                <GoatPanel key={goat.name} goat={goat} />
               )
             })}
 
@@ -462,19 +478,19 @@ const MobileContact = (props) => {
       <Heading level="1"><u>Contact Me</u></Heading>
       <Grid
         rows={['medium', 'small', 'xxsmall']}
-        columns={['medium']}
+        columns={['88vw']}
         gap="medium"
         areas={[
           { name: 'pic1', start: [0, 1], end: [0, 1] },
           { name: 'info', start: [0, 0], end: [0, 0] },
           { name: 'links', start: [0, 2], end: [0, 2] },
         ]}
-        pad="medium"
+        pad="small"
         width="medium"
         alignSelf="center"
       >
         <Box pad="medium" gridArea="info" background="light-2" align="center" justify="center" textAlign="center">
-          <Paragraph size="large" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
+          <Paragraph size="medium" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
 
           Most of them are boer, kiko, or cross-breeds. If interested, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
           </Paragraph>
@@ -498,20 +514,20 @@ const Contact = (props) => {
     <Box pad="small" id="contact" name="contact" background="neutral-4" direction="column" align="center" alignSelf="center" justify="center">
       <Heading level="1"><u>Contact Me</u></Heading>
       <Grid
-        rows={['medium', 'small', 'xsmall']}
-        columns={['medium', 'large', 'medium']}
+        rows={['medium', 'xsmall']}
+        columns={['23vw', 'large', '23vw']}
         gap="medium"
         areas={[
           { name: 'pic1', start: [0, 0], end: [0, 0] },
           { name: 'info', start: [1, 0], end: [1, 0] },
           { name: 'pic2', start: [2, 0], end: [2, 0] },
-          { name: 'links', start: [0, 2], end: [2, 2] },
+          { name: 'links', start: [0, 1], end: [2, 1] },
         ]}
         pad="medium"
         width="xlarge"
         alignSelf="center"
       >
-        <Box pad="small" gridArea="info" background="light-2" align="center" justify="center" textAlign="center">
+        <Box pad="small" gridArea="info" background="light-2" align="center" justify="center" textAlign="center" round={true}>
           <Paragraph size="large" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. They all have loving, joyful spirits and deserve to find happiness! I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
 
           Most of them are boer, kiko, or cross-breeds. My prices range anywhere from $100 - $500, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
@@ -523,7 +539,7 @@ const Contact = (props) => {
         <Box pad="medium" gridArea="pic2">
           <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra6.png" />
         </Box>
-        <Box pad="small" gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="xlarge">
+        <Box margin='xxsmall' gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="xlarge">
           <Facebook size="large" />
           <Twitter size="large" />
           <Youtube size="large" />
