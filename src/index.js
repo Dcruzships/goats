@@ -6,7 +6,7 @@ import './index.scss';
 import { Anchor, Box, Grommet, Grid, Header, Paragraph, Heading, Nav, Image, Carousel, Video, Text, Accordion, AccordionPanel, Tabs, Tab, RangeInput, Collapsible } from "grommet";
 import { base } from "grommet/themes";
 import { Volume } from 'grommet-icons/icons/Volume';
-import { Facebook, Youtube, Github, Twitter } from 'grommet-icons';
+// import { Facebook, Youtube, Github, Twitter } from 'grommet-icons';
 import ReactAudioPlayer from 'react-audio-player';
 
 var Scroll   = require('react-scroll');
@@ -123,7 +123,7 @@ class App extends React.Component
         <Grommet theme={base}>
           <Box id="home" name="home">
             <MobileNav />
-            <Slides />
+            <MobileSlides />
           </Box>
           <MobileAbout />
           <MobileContact />
@@ -214,6 +214,20 @@ const Slides = () => {
   )
 }
 
+const MobileSlides = () => {
+  return(
+    <Box align="center" pad="none" height="500px" id="mainSlides">
+      <Carousel fill play={5000} controls={true}>
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats1.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats4.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats7.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats3.png" />
+        <Image fit="cover" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/home/goats8.png" />
+      </Carousel>
+    </Box>
+  )
+}
+
 const GoatPanel = (props) => {
   const [open, setOpen] = useState(false);
 
@@ -281,10 +295,10 @@ const About = () => {
             pad="large"
             width="xlarge"
           >
-            <Box gridArea="text" pad="medium" background="light-2" round={true}>
+            <Box gridArea="text" pad="xsmall" background="light-2" round={true}>
               <Heading level="1">About</Heading>
               <Paragraph fill margin="small">
-              Day Six Farm is a loving home for 32 all natural, well-fed goats and 12 adorable mallard ducks. Lori Ferrell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature and wonderful heart. Spending most of her life as a city girl, Lori had dreamed of having a farm and raising animals since childhood. At first sight of her new home, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in the precious lives as they scratched their horns on trees and frolicked in the grass. The name was chosen to give thanks and honor back to God.</Paragraph>
+              Day Six Farm is a loving home for a herd of all natural, well-fed goats and some adorable mallard ducks located in Prosper, TX. My name is Lori Ferrell and I opened my farm with 15 goats in 2018. I have since grown my herd with lots of love, perseverence, and desire to honor God. It was this combination that allowed me to overcome the learning curve of farm life.<br /><br /> Spending most of my life as a city girl, I dreamed of having a farm and raising animals even as a young child. At first sight of my new goats entering the yard, an immediate feeling of peace and awe came over me. Watching the goats eat, sleep, and even scratch their horns against the trees made it clear that the farm needed a special name. I chose the name Day Six Farm to give thanks back to God for creating these wonderful creatures.</Paragraph>
             </Box>
             <Box gridArea="bible" background="light-2" pad="small" alignSelf="center">
               <Heading level="5" alignSelf="center"><b><a target="_blank" href="https://www.biblegateway.com/passage/?search=Genesis%201&version=KJV" rel="noopener noreferrer">Genesis 1:24-25</a></b></Heading>
@@ -299,6 +313,7 @@ const About = () => {
           </Grid>
         </Tab>
         <Tab title="Goats">
+          <Heading level="2">Meet Some of The Goats</Heading>
           <Grid
             rows={['medium', 'medium']}
             columns={['small', 'small', 'small', 'small', 'small']}
@@ -352,7 +367,7 @@ const About = () => {
               </AccordionPanel>
               <AccordionPanel label="First Steps" width="xlarge" onClick={() => playTrack(2)}>
                 <Box pad="medium" background="light-2" direction="row-reverse" gap="medium">
-                  <Paragraph align="start">"It was scary but wonderful... I had found this new source of peace and joy. It was scary but wonderful... I had found this new source of peace and joy. It was scary but wonderful... I had found this new source of peace and joy."</Paragraph>
+                  <Paragraph align="start">"It was scary but wonderful... I had found this new source of peace and joy."</Paragraph>
                   <Image fit="contain" width="250px" height="400px" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats3.png" />
                 </Box>
               </AccordionPanel>
@@ -382,27 +397,27 @@ const About = () => {
               </AccordionPanel>
               <AccordionPanel label="Learning from Baby Goats!" width="xlarge" onClick={() => playTrack(5)}>
                 <Box pad="medium" gap="medium" background="light-2" direction="row">
-                  <Paragraph>I bought my first 15 goats in April 2018, since then I have doubled my herd size and sold dozens of goats! <br /> <br />
+                  <Paragraph>I bought my first 15 goats in April 2018, since then I have increased the size of my herd and sold many goats! <br /> <br />
 
-                  There's a lot I wish I had known before I had bought my first goat, but I wouldn't trade the learning experiences for the world! Ups and downs come about everyday, and I like to think I have become stronger for my patience. They are precious creatures, each with unique sizes and noises, all rustling with love! I spend hours just watching them live, everything they do is a testament to the beauty of this world, an example of God's love.
+                  There's a lot I wish I had known before I had bought my first goat, but I wouldn't trade the learning experiences for the world! Ups and downs come about everyday, and I like to think I have become stronger for my patience and perseverence. They are precious creatures, each with unique personalities, all rustling with love! I spend hours just watching them live, everything they do is a testament to the beauty of this world, an example of God's love.
                   </Paragraph>
                   <Image width="250px" height="400px" fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra3.png" />
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="All Natural!" width="xlarge" onClick={() => playTrack(7)}>
                 <Box pad="medium" background="light-2" direction="row">
-                  <Paragraph>I feed my goats a combination of 3 types of multi-grain feed, plus they love eating leaves off the trees they can reach!
+                  <Paragraph>I provide my goats with an all-natural multi-grain feed, high quality hay, and fresh, clean water. Plus they love eating leaves off any trees they can reach or the branches I trim for them!
                   <br /><br />
-                  Goats mature around age 2 and can live up to 25!
+                  Goats mature around age 2 and can live up to 15 years (or so I've been told!)
                   </Paragraph>
                   <Image width="450px" height="300px" fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra2.png" />
                 </Box>
               </AccordionPanel>
               <AccordionPanel label="Selling Goats" width="xlarge" onClick={() => playTrack(6)}>
               <Box pad="medium" gap="medium" background="light-2" direction="row-reverse">
-                <Paragraph>I sell goats for all sorts of purposes, but I prefer finding new homes for them. They all have loving, joyful spirits and deserve to find happiness! I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
+                <Paragraph>I sell goats for all sorts of purposes. While providing meat for family celebrations is wonderful, I love the idea of providing goats for someone starting a herd or adding to one. They all have loving, joyful spirits and deserve happiness!<br /><br /> I would be happy to assist a new farmer with my knowledge of raising goats. They are well behaved and make great pets even with young children!<br /><br />
 
-                Most of them are boer, kiko, or cross-breeds. My prices range anywhere from $100 - $500, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
+                Most of them are boer, kiko, or cross-breeds. If interested, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
                 </Paragraph>
                 <Image width="450px" height="300px" fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra5.png" />
               </Box>
@@ -420,6 +435,34 @@ const About = () => {
 }
 
 const MobileAbout = () => {
+  const [trackNum, setTrackNum] = useState(50);
+  const [volume, setVolume] = useState(.4);
+  let player;
+
+  function playTrack(label)
+  {
+    player = document.querySelector("#player");
+    player.src = `https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir${label}.ogg`;
+
+    if(label !== trackNum)
+    {
+      player.play();
+      setTrackNum(label);
+    }
+    else {
+      player.pause();
+      setTrackNum(50);
+    }
+  }
+
+  function changeVolume(e)
+  {
+    e.preventDefault();
+    setVolume(e.target.value);
+    player = document.querySelector("#player");
+
+    player.volume = e.target.value;
+  }
   return(
     <Box pad="xsmall" id="aboutPage" name="aboutPage" background="neutral-3">
       <Tabs alignSelf="center" pad='small'>
@@ -437,9 +480,9 @@ const MobileAbout = () => {
             width="medium"
           >
             <Box gridArea="text" pad="small" background="light-2" round={true}>
-              <Heading level="1">About</Heading>
+              <Heading level="2">About</Heading>
               <Paragraph margin="xsmall" size="medium">
-              Day Six Farm is a home for 32 goats and 12 mallard ducks. Lori Ferrell opened her farm with 15 goats in 2018 and has since doubled her herd thanks to her incredible caring nature. After opening her farm, an immediate feeling of peace came over Lori’s life; there was something ever present, even holy in it all. The name was chosen to give thanks and honor to God.</Paragraph>
+              Day Six Farm is a home for goats and mallard ducks. My name is Lori Ferrell and I opened my farm with 15 goats in 2018. I am loving my journey as a successful goat farmer. This farm brings a feeling of peace and awe to my life. I chose the name Day Six Farm to give thanks back to God for creating these wonderful creatures.</Paragraph>
             </Box>
             <Box gridArea="bible" background="light-2" pad="small" alignSelf="center">
               <Text level="3" alignSelf="center" pad='xxsmall'><b><a target="_blank" href="https://www.biblegateway.com/passage/?search=Genesis%201&version=KJV" rel="noopener noreferrer">Genesis 1:24-25</a></b></Text>
@@ -467,6 +510,79 @@ const MobileAbout = () => {
             })}
           </Carousel>
         </Tab>
+        <Tab title="Recordings and More!">
+          <Box background="light-2" alignSelf="center" width="100vw" round={true}>
+            <Box direction="column" width="medium" pad="small">
+              <Heading level="1" alignSelf="center">Recordings</Heading>
+              <Box gap="small" align="center" direction="row" justify="center">
+                <Volume />
+                <RangeInput
+                  value={volume}
+                  min={0}
+                  max={1.0}
+                  step={.1}
+                  onChange={event => changeVolume(event)}
+                  hoverIndicator={true}
+                  style={{width:'50%'}}
+                />
+              </Box>
+            </Box>
+            <Accordion pad="medium">
+              <AccordionPanel label="My Name is Lori Ferrell" width="large" onClick={() => playTrack(1)}>
+                <Box pad="medium" background="light-2" direction="row-responsive">
+                  <Paragraph>I grew up in Richardson, TX. While my relatives lived in the country, I embraced the city life for years. I was a guidance counselor for a long time, and I developed a passion for service. Helping others, watching life grow. <br /> <br />
+                  In April 2018 I got my first fifteen goats! Since then I have learned to love all life that I come across. Watching them grow up, their little personality quirks coming about, it's a miracle to witness. </Paragraph>
+                  <Image src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/lori.jpg" />
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="First Steps" width="large" onClick={() => playTrack(2)}>
+                <Box pad="medium" background="light-2" direction="row-reverse" gap="medium">
+                  <Paragraph align="start">"It was scary but wonderful... I had found this new source of peace and joy."</Paragraph>
+                  <Image fit="contain" width="250px" height="400px" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats3.png" />
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="A Gift from God - Day Six Farm" width="large" onClick={() => playTrack(3)}>
+                <Box pad="medium" background="light-2" direction="row-reverse" gap="medium">
+                  <Paragraph>
+                  Day Six Farms comes from <a href="https://www.biblegateway.com/passage/?search=Genesis%201&version=KJV">Genesis 1:24-31</a><br /> <br/>
+                  </Paragraph>
+                  <Image fit="contain" gap="medium" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/goats1.png" />
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Learning from Baby Goats!" width="large" onClick={() => playTrack(5)}>
+                <Box pad="medium" gap="medium" background="light-2" direction="row">
+                  <Paragraph>I bought my first 15 goats in April 2018, since then I have increased the size of my herd and sold many goats! <br /> <br />
+
+                  There's a lot I wish I had known before I had bought my first goat, but I wouldn't trade the learning experiences for the world! Ups and downs come about everyday, and I like to think I have become stronger for my patience and perseverence. They are precious creatures, each with unique personalities, all rustling with love! I spend hours just watching them live, everything they do is a testament to the beauty of this world, an example of God's love.
+                  </Paragraph>
+                  <Image width="150px" height="300px" fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra3.png" />
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="All Natural!" width="large" onClick={() => playTrack(7)}>
+                <Box pad="medium" background="light-2" direction="row">
+                  <Paragraph>I provide my goats with an all-natural multi-grain feed, high quality hay, and fresh, clean water. Plus they love eating leaves off any trees they can reach or the branches I trim for them!
+                  <br /><br />
+                  Goats mature around age 2 and can live up to 15 years (or so I've been told!)
+                  </Paragraph>
+                  <Image width="450px" height="300px" fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra2.png" />
+                </Box>
+              </AccordionPanel>
+              <AccordionPanel label="Selling Goats" width="large" onClick={() => playTrack(6)}>
+              <Box pad="medium" gap="medium" background="light-2" direction="row-reverse">
+                <Paragraph>I sell goats for all sorts of purposes. While providing meat for family celebrations is wonderful, I love the idea of providing goats for someone starting a herd or adding to one. They all have loving, joyful spirits and deserve happiness!<br /><br /> I would be happy to assist a new farmer with my knowledge of raising goats. They are well behaved and make great pets even with young children!<br /><br />
+
+                Most of them are boer, kiko, or cross-breeds. If interested, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
+                </Paragraph>
+                <Image width="450px" height="300px" fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra5.png" />
+              </Box>
+              </AccordionPanel>
+            </Accordion>
+            <ReactAudioPlayer id="player"
+              src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/audio/memoir1.ogg"
+              volume={volume}
+            />
+          </Box>
+        </Tab>
       </Tabs>
     </Box>
   )
@@ -490,19 +606,13 @@ const MobileContact = (props) => {
         alignSelf="center"
       >
         <Box pad="medium" gridArea="info" background="light-2" align="center" justify="center" textAlign="center">
-          <Paragraph size="medium" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
+          <Paragraph size="medium" textAlign="center">I sell goats for all sorts of purposes. While providing meat for family celebrations is wonderful, I love the idea of providing goats for someone starting a herd or adding to one. They all have loving, joyful spirits and deserve happiness!<br /><br />
 
           Most of them are boer, kiko, or cross-breeds. If interested, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
           </Paragraph>
         </Box>
         <Box pad="medium" gridArea="pic1">
           <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra1.png" />
-        </Box>
-        <Box gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="large">
-          <Facebook size="medium" />
-          <Twitter size="medium" />
-          <Youtube size="medium" />
-          <a href="https://github.com/Dcruzships/goats" target="_blank" rel="noopener noreferrer"><Github size="medium" /></a>
         </Box>
       </Grid>
     </Box>
@@ -523,14 +633,14 @@ const Contact = (props) => {
           { name: 'pic2', start: [2, 0], end: [2, 0] },
           { name: 'links', start: [0, 1], end: [2, 1] },
         ]}
-        pad="medium"
+        pad="small"
         width="xlarge"
         alignSelf="center"
       >
-        <Box pad="small" gridArea="info" background="light-2" align="center" justify="center" textAlign="center" round={true}>
-          <Paragraph size="large" textAlign="center">I sell goats for all sorts of purposes, but I prefer finding new homes for them. They all have loving, joyful spirits and deserve to find happiness! I would be happy to assist in their caretaking along the way as well, they are well behaved and can act as pets even around children!<br /><br />
+        <Box pad="large" gridArea="info" background="light-2" align="center" justify="center" textAlign="center" round={true}>
+          <Paragraph size="large" textAlign="center">I sell goats for all sorts of purposes. While providing meat for family celebrations is wonderful, I love the idea of providing goats for someone starting a herd or adding to one. They all have loving, joyful spirits and deserve happiness!<br /><br /> I would be happy to assist a new farmer with my knowledge of raising goats. They are well behaved and make great pets even with young children!<br /><br />
 
-          Most of them are boer, kiko, or cross-breeds. My prices range anywhere from $100 - $500, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
+          Most of them are boer, kiko, or cross-breeds. If interested, please call me at <a href="tel:+19728901153">(972)890-1153</a> or send me an email at <a href="mailto:lorileeferrell375@gmail.com" target="_blank" rel="noopener noreferrer">lorileeferrell375@gmail.com</a>
           </Paragraph>
         </Box>
         <Box pad="medium" gridArea="pic1">
@@ -539,16 +649,18 @@ const Contact = (props) => {
         <Box pad="medium" gridArea="pic2">
           <Image fit="contain" src="https://raw.githubusercontent.com/dcruzships/goats/master/assets/img/extra6.png" />
         </Box>
-        <Box margin='xxsmall' gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="xlarge">
-          <Facebook size="large" />
-          <Twitter size="large" />
-          <Youtube size="large" />
-          <a href="https://github.com/Dcruzships/goats" target="_blank" rel="noopener noreferrer"><Github size="large" /></a>
-        </Box>
+
       </Grid>
     </Box>
   )
 }
+
+// <Box margin='xxsmall' gridArea="links" background="light-2" direction="row" justify="center" align="center" gap="xlarge">
+//   <Facebook size="large" />
+//   <Twitter size="large" />
+//   <Youtube size="large" />
+//   <a href="https://github.com/Dcruzships/goats" target="_blank" rel="noopener noreferrer"><Github size="large" /></a>
+// </Box>
 
 $(document).ready(function()
 {
