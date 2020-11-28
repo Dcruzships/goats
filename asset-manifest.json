@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.fc73191f.chunk.css",
-    "main.js": "/static/js/main.e38acd19.chunk.js",
-    "main.js.map": "/static/js/main.e38acd19.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.c42de3f9.js",
-    "runtime-main.js.map": "/static/js/runtime-main.c42de3f9.js.map",
-    "static/js/2.482b1d4f.chunk.js": "/static/js/2.482b1d4f.chunk.js",
-    "static/js/2.482b1d4f.chunk.js.map": "/static/js/2.482b1d4f.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.55cfc151f3cdce62ffbdd94df9cabcce.js": "/precache-manifest.55cfc151f3cdce62ffbdd94df9cabcce.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.fc73191f.chunk.css.map": "/static/css/main.fc73191f.chunk.css.map",
-    "static/js/2.482b1d4f.chunk.js.LICENSE.txt": "/static/js/2.482b1d4f.chunk.js.LICENSE.txt"
+    "main.css": "/goats/static/css/main.fc73191f.chunk.css",
+    "main.js": "/goats/static/js/main.e38acd19.chunk.js",
+    "main.js.map": "/goats/static/js/main.e38acd19.chunk.js.map",
+    "runtime-main.js": "/goats/static/js/runtime-main.1cc38658.js",
+    "runtime-main.js.map": "/goats/static/js/runtime-main.1cc38658.js.map",
+    "static/js/2.7758c4ff.chunk.js": "/goats/static/js/2.7758c4ff.chunk.js",
+    "static/js/2.7758c4ff.chunk.js.map": "/goats/static/js/2.7758c4ff.chunk.js.map",
+    "index.html": "/goats/index.html",
+    "precache-manifest.2e53fb6e78b93602017e0bf33c506457.js": "/goats/precache-manifest.2e53fb6e78b93602017e0bf33c506457.js",
+    "service-worker.js": "/goats/service-worker.js",
+    "static/css/main.fc73191f.chunk.css.map": "/goats/static/css/main.fc73191f.chunk.css.map",
+    "static/js/2.7758c4ff.chunk.js.LICENSE.txt": "/goats/static/js/2.7758c4ff.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c42de3f9.js",
-    "static/js/2.482b1d4f.chunk.js",
+    "static/js/runtime-main.1cc38658.js",
+    "static/js/2.7758c4ff.chunk.js",
     "static/css/main.fc73191f.chunk.css",
     "static/js/main.e38acd19.chunk.js"
   ]
