@@ -295,8 +295,8 @@ const About = () => {
             pad="large"
             width="xlarge"
           >
-            <Box gridArea="text" pad="xsmall" background="light-2" round={true}>
-              <Heading level="1">About</Heading>
+            <Box gridArea="text" pad="small" background="light-2" round={true}>
+              <Heading level="1" margin="small">About</Heading>
               <Paragraph fill margin="small">
               Day Six Farm is a loving home for a herd of all natural, well-fed goats and some adorable mallard ducks located in Prosper, TX. My name is Lori Ferrell and I opened my farm with 15 goats in 2018. I have since grown my herd with lots of love, perseverence, and desire to honor God. It was this combination that allowed me to overcome the learning curve of farm life.<br /><br /> Spending most of my life as a city girl, I dreamed of having a farm and raising animals even as a young child. At first sight of my new goats entering the yard, an immediate feeling of peace and awe came over me. Watching the goats eat, sleep, and even scratch their horns against the trees made it clear that the farm needed a special name. I chose the name Day Six Farm to give thanks back to God for creating these wonderful creatures.</Paragraph>
             </Box>
